@@ -64,9 +64,9 @@ console.log(manager);
           <p class="card-text">Manager 👨‍💼</p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">${response.idMan}</li>
-          <li class="list-group-item"><a href="#" class="card-link">${response.emailMan}</a></li>
-          <li class="list-group-item">${response.numMan}</li>
+          <li class="list-group-item">ID: ${response.idMan}</li>
+          <li class="list-group-item">Email: <a href="mailto: ${response.emailMan}" class="card-link">${response.emailMan}</a></li>
+          <li class="list-group-item">Office Number: ${response.numMan}</li>
         </ul>
       </div>`
     
@@ -102,7 +102,7 @@ const newHire = () => {
         }
     ])
     .then((response) =>{
-    if (response.choice == "Engineer"){
+    if (response.choice === "Engineer"){
         hireEngineer();
     }
     else if(response.choice === "Intern"){
@@ -154,9 +154,9 @@ const hireEngineer = () => {
             <p class="card-text">Engineer 👨‍💻</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">${response.idEng}</li>
-            <li class="list-group-item"><a href="#" class="card-link">${response.emailEng}</a></li>
-            <li class="list-group-item"><a href="#" class="card-link">${response.githubEng}</a></li>
+            <li class="list-group-item">ID: ${response.idEng}</li>
+            <li class="list-group-item">Email: <a href="mailto: ${response.emailEng}" class="card-link">${response.emailEng}</a></li>
+            <li class="list-group-item">Github: <a href="https://github.com/${response.githubEng}" class="card-link">${response.githubEng}</a></li>
         </ul>
     </div>`
 
@@ -211,9 +211,9 @@ const hireEngineer = () => {
             <p class="card-text">Intern 👨‍🎓</p>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">${response.idInt}</li>
-            <li class="list-group-item"><a href="#" class="card-link">${response.emailInt}</a></li>
-            <li class="list-group-item">${response.schoolInt}</li>
+            <li class="list-group-item">ID: ${response.idInt}</li>
+            <li class="list-group-item">Email: <a href="mailto: ${response.emailInt}" class="card-link">${response.emailInt}</a></li>
+            <li class="list-group-item">School: ${response.schoolInt}</li>
           </ul>
         </div>`
     
