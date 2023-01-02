@@ -7,89 +7,36 @@ const Intern = require('./lib/intern');
 
 
 
-const manager= new Manager()
-
-manager.getRole()
-
-
-// inquirer
-//   .prompt([
-//     {
-//       type: 'input',
-//       message: 'What is the name of the Team Manager?',
-//       name: 'nameMan',
-//     },
-//     {
-//       type: 'input',
-//       message: 'Add the Team managers ID: ',
-//       name: 'idMan',
+const hireManager = () => {
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      message: 'What is the name of the Team Manager?',
+      name: 'nameMan',
+    },
+    {
+      type: 'input',
+      message: 'Add the Team managers ID: ',
+      name: 'idMan',
       
-//     },
-//     {
-//       type: 'input',
-//       message: 'Add the Team managers Email: ',
-//       name: 'emailMan',
-//     },
-//     {
-//     type: 'input',
-//     message: 'Add the Team managers office number: ',
-//     name: 'numMan',   
-//     },
-    // {
-    // type: 'input',
-    // message: 'Would you like to add an Intern or Engineer?',
-    // name: 'employeeChoice',
-    
-    // },
-    // {
-    // type: 'input',
-    // message: 'If you selected Engineer, Please add their name',
-    // name: 'nameEng',
-    
-    // },
-    // {
-    // type: 'input',
-    // message: 'Add the Engineers ID: ',
-    // name: 'idEng',
-    
-    // },
-    // {
-    // type: 'input',
-    // message: 'Add the Engineers Email: ',
-    // name: 'emailEng',
-    // },
-    // {
-    // type: 'input',
-    // message: 'Add the Engineer Github: ',
-    // name: 'githubEng',
-    
-    // },
-    // {
-    // type: 'input',
-    // message: 'If you selected Intern, Please add their name',
-    // name: 'nameInt',
-    
-    // },
-    // {
-    // type: 'input',
-    // message: 'Add the Interns ID: ',
-    // name: 'idInt',
-    
-    // },
-    // {
-    // type: 'input',
-    // message: 'Add the Interns Email: ',
-    // name: 'emailInt',
-    // },
-    // {
-    // type: 'input',
-    // message: 'Add the Interns School: ',
-    // name: 'schoolInt',
-    
-    // },
+    },
+    {
+      type: 'input',
+      message: 'Add the Team managers Email: ',
+      name: 'emailMan',
+    },
+    {
+    type: 'input',
+    message: 'Add the Team managers office number: ',
+    name: 'numMan',   
+    }
 
-//   ])
-//   .then((response) =>{
+  ])
+  .then((response) =>{
+    
+const manager= new Manager(response.nameMan, response.idMan, response.emailMan, response.numMan);
+// console.log(manager);
 //   let words=
 
 // `
@@ -121,22 +68,204 @@ manager.getRole()
 //           <li class="list-group-item"><a href="#" class="card-link">${response.emailMan}</a></li>
 //           <li class="list-group-item">${response.numMan}</li>
 //         </ul>
-//       </div>
-//     </div>
-//     </section>
+//       </div>`
+    
+// //     </div>
+// //     </section>
 
-//       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-// <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-// <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-// </body>
-// </html>
-// `
+// //       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+// // <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+// // <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+// // </body>
+// // </html>
+// // `
 
 //     fs.writeFile('index.html',words , err => {
 //     if (err) {
 //       console.error(err);
 //     }
-//   })});
+//   })
+newHire();
+
+});
+  
+}
+
+const newHire = () => {
+    inquirer
+      .prompt([
+        {
+          type: 'list',
+          message: 'Select to add an "Intern", "Engineer", or "No more employees" ',
+          name: 'choice',
+          choices:["Intern", "Engineer", "No more employees" ]
+        }
+    ])
+    .then((response) =>{
+    if (response.choice == "Engineer"){
+        hireEngineer();
+    }
+    else if(response.choice === "Intern"){
+        console.log("dammm");
+    }
+    else if(response.choice === "No more employees"){
+        console.log("All done");}
+});}
+
+
+const hireEngineer = () => {
+    inquirer
+      .prompt([
+           {
+            type: 'input',
+            message: 'You selected Engineer. Please add their name: ',
+            name: 'nameEng',
+            
+            },
+            {
+            type: 'input',
+            message: 'Add the Engineers ID: ',
+            name: 'idEng',
+            
+            },
+            {
+            type: 'input',
+            message: 'Add the Engineers Email: ',
+            name: 'emailEng',
+            },
+            {
+            type: 'input',
+            message: 'Add the Engineer Github: ',
+            name: 'githubEng',
+            
+            }
+    
+      ])
+      .then((response) =>{
+        
+    const engineer= new Engineer(response.nameEng, response.idEng, response.emailEng, response.githubEng)
+    console.log(engineer)
+      let words=
+    
+    `
+        <div class="card col-lg-3 col-md-5 col-sm-12 p-0 my-5 border-radius-10px" style="width: 18rem;">
+            <div class="card-body bg-primary text-white">
+              <h5 class="card-title ">${response.nameMan}</h5>
+              <p class="card-text">Manager 👨‍💼</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">${response.idMan}</li>
+              <li class="list-group-item"><a href="#" class="card-link">${response.emailMan}</a></li>
+              <li class="list-group-item">${response.numMan}</li>
+            </ul>
+          </div>`
+
+        fs.appendFile('index.html',words , err => {
+        if (err) {
+          console.error(err);
+        }
+      })
+    newHire()
+    });
+      
+    }
+
+hireManager();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //   <!DOCTYPE html>
 //   <html lang="en">
