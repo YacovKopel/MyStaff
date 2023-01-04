@@ -22,6 +22,7 @@ N/A
 
 ## Deployment Link
 https://yacovkopel.github.io/MyStaff/
+https://drive.google.com/file/d/1VC9O0AbAbsmCLglRi2zV8Q6JSOmF-x3q/view
 
 ## License
 N/A
